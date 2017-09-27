@@ -15,9 +15,10 @@
     {
       var xhttp = new XMLHttpRequest();
       xhttp.open('GET','https://goytia54.github.io/ajaxprac.json');
-      xhttp.onload = function() {
-            var ourData = JSON.parse(xhttp.responseText);
-            renderHTML(ourData); 
+      xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200)
+            {var ourData = JSON.parse(xhttp.responseText);
+            renderHTML(ourData);} 
             };
       xhttp.send();
     }  
