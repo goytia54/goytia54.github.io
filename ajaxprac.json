@@ -1,0 +1,17 @@
+[
+  {
+    "make": "Ford",
+    "model": "F-150",
+    "year": "2017"
+  },
+  {
+    "make": "Toyota",
+    "model": "Tundra",
+    "year": "2016";
+  },
+  {
+    "make": "Dodge",
+    "model": "RAM",
+    "year": "2017";
+  }
+]
