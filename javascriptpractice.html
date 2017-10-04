@@ -1,26 +1,65 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AJAX PRACTICE</title>
+    <title>JavaScript Practice</title>
   </head>
   <body>
     <h1>Energry Conversions</h1>
-    <input type="number"/><br>
+    <input type="number" id="raw-number"/><br>
     <select id="from-conversion">
      <option value="Joule">Joule</option>
      <option value="Electronvolt">Electronvolt</option>
-     <option value="Hartee">Hartee</option>
+     <option value="Hartree">Hartree</option>
     </select>
     <select id="to-conversion">
      <option value="Joule">Joule</option>
      <option value="Electronvolt">Electronvolt</option>
-     <option value="Hartee">Hartee</option>
+     <option value="Hartree">Hartree</option>
     </select>
     
-    <button type="button" onclick="loadTruckLotData()">Convert</button>
-    <p id="trucks-on-lot"></p>
+    <button type="button" onclick="getValuesAndConvert()">Convert</button>
+    <p id="final-value"></p>
   </body>
   <script>
+      function getValuesAndConvert()
+      {
+        var fromConversion = document.getElementById("from-conversion");
+        var toConversion = document.getElementById("to-conversion");
+        var rawNumber = document.getElementById("raw-number").value;
+        var finalValue = 0.00;
+        fromConversionOption = fromConversion.options[fromConversion.selectedIndex].value;
+        toConversionOption = toConversion.options[toConversion.selectedIndex].value;
+        if (fromConversionOption == toConversionOption)
+        {
+            finalValue = rawNumber;
+        }
+        else
+        {
+            finalValue = convertValue(fromConversionOption, toConversionOption, rawNumber);
+        }
+        document.getElementById("final-value").innerHTML = finalValue + " " + toConversionOption + "s";
+      };
+
+      function convertValue(fromConversionOption, toConversionOption, rawNumber)
+      {
+        jouleDict = {"Electronvolt": 6.242e18, "Hartree": 2.294e+17};
+        electronvoltDict = {"Joule": 1.60218e-19, "Hartree": 0.0367493};
+        hartreeDict = {"Joule": 4.35974e-18, "Electronvolt": 27.2114};
+        var finalValue;
+        if (fromConversionOption == "Joule")
+        {
+            finalValue = jouleDict[toConversionOption] * rawNumber;
+        }
+        else if(fromConversionOption == "Electronvolt")
+        {
+            finalValue = electronvoltDict[toConversionOption] * rawNumber;
+        }
+        else //hartree
+        {
+            finalValue = hartreeDict[toConversionOption] * rawNumber;
+        }
+        return finalValue
+      }
 
   </script>
 </html>
