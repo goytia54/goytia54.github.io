@@ -5,8 +5,19 @@
   </head>
   <body>
     <h1>Energry Conversions</h1>
-    <input type="number"/>
-    <button type="button" onclick="loadTruckLotData()">Available Trucks</button>
+    <input type="number"/><br>
+    <select id="from-conversion">
+     <option value="Joule">Joule</option>
+     <option value="Electronvolt">Electronvolt</option>
+     <option value="Hartee">Hartee</option>
+    </select>
+    <select id="to-conversion">
+     <option value="Joule">Joule</option>
+     <option value="Electronvolt">Electronvolt</option>
+     <option value="Hartee">Hartee</option>
+    </select>
+    
+    <button type="button" onclick="loadTruckLotData()">Convert</button>
     <p id="trucks-on-lot"></p>
   </body>
   <script>
