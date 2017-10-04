@@ -29,7 +29,7 @@
       {
         htmlString += ourData[i].make + " " + ourData[i].model + ":" + ourData[i].year + "<br/>"
       }
-      trucksLotsParagraph.insertAdjacentHTML('beforeend',htmlString);
+      trucksLotsParagraph.innerHTML = htmlString;
     }
   </script>
 </html>
