@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Practice</title>
+  </head>
+  <body>
+  <h1>Speedy Sheets</h1>
+  <button onclick="addRow()">Add Row</button>
+  <button onclick="addColumn()">Add Column</button><br><br>
+  <button onclick="deleteRow()">Delete Row</button>
+  <button onclick="deleteColumn()">Delete Column</button>
+  <br/>
+  <br/>
+  <table id="working-table">
+    <tbody id="table-body">
+    <tr id="r1">
+        <td id="r1d1"><input type="text"></td>
+        <td id="r1d2"><input type="text"></td>
+        <td id="r1d3"><input type="text"></td>        
+    </tr>
+    <tr id="r2">
+        <td id="r2d1"><input type="text"></td>
+        <td id="r2d2"><input type="text"></td>
+        <td id="r2d3"><input type="text"></td>              
+    </tr>
+    <tr id="r3">
+        <td id="r3d1"><input type="text"></td>
+        <td id="r3d2"><input type="text"></td>
+        <td id="r3d3"><input type="text"></td>              
+    </tr>
+    </tbody>
+  </table>
+  
+  </body>
+  <script>
+    var numberRows = 3;
+    var numberColumns = 3;
+    function addRow()
+    {
+        numberRows+=1;
+        var newRow = document.createElement("tr");
+        newRow.setAttribute("id","r"+numberRows);
+        document.getElementById("table-body").appendChild(newRow);
+        for(var i = 0; i < numberColumns; i++)
+        {
+            var newColumn = document.createElement("td");
+            newColumn.setAttribute("id","r"+numberRows+"d"+i);
+            newColumn.innerHTML = '<input type="text">'
+            newRow.appendChild(newColumn);
+        }
+    }
+
+    function addColumn()
+    {
+        numberColumns += 1;
+        for(var i = 1; i <= numberRows; i++)
+        {
+            var currentRow = document.getElementById("r"+i);
+            var newColumn = document.createElement("td");
+            newColumn.setAttribute("id","r"+i+"d"+numberColumns);
+            newColumn.innerHTML = '<input type="text">';
+            currentRow.appendChild(newColumn);
+        }
+    }
+
+    function deleteRow()
+    {
+        var rowDelete = document.getElementById("r"+numberRows);
+        document.getElementById("table-body").removeChild(rowDelete);
+        numberRows -= 1;
+    }
+
+    function deleteColumn()
+    {
+        for(var i = 1; i <= numberRows; i++)
+        {
+            var currentRow = document.getElementById("r"+i);
+            var currentColumn = document.getElementById("r"+i+"d"+numberColumns);
+            currentRow.removeChild(currentColumn);
+        }
+        numberColumns -= 1;   
+    }
+  </script>
+</html>
