@@ -22,6 +22,14 @@
     var shapeState = true;
     var gameState = false;
     var shape;
+    //shape constructor
+    function Shape(type, x, y, gridPositions)
+    {
+        this.type = type;
+        this.x = x;
+        this.y = y;
+        this.gridPositions = gridPositions;
+    };
     
     function resetGrid()
     {
@@ -36,43 +44,46 @@
 
     function pickShape()
     {
-        var randomShapeNumber = Math.floor((Math.random() * 6) + 1);
+        var randomShapeNumber = Math.floor((Math.random() * 5) + 1);
         switch(randomShapeNumber)
         {
-            case 1: // block shape
-                shape = {type: 1, positions:[{x:4,y:0},{x:5,y:0},{x:4,y:1},{x:5,y:1}]};
+            // case 1: // block shape
+            //     shape = {type: 1, x:4,y:1, gridPositions:[{x:-1,y:1},{x:0,y:1},{x:-1,y:0},{x:0,y:0}]} 
+            //     break;
+            // case 2: // long line
+            //     shape = {type: 2, gridPositions:[{x:4,y:0},{x:4,y:1},{x:4,y:2},{x:4,y:3}]};
+            //     break;
+            case 1: // t shape
+                shape = new Shape(3,4,1,[{x:-1,y:0},{x:0,y:0},{x:0,y:1},{x:1,y:0}]);
                 break;
-            case 2: // long line
-                shape = {type: 2, positions:[{x:4,y:0},{x:4,y:1},{x:4,y:2},{x:4,y:3}]};
+            case 2: // s shape right handed
+                shape = new Shape(4,4,1,[{x:-1,y:0},{x:0,y:0},{x:0,y:1},{x:1,y:1}]);
                 break;
-            case 3: // s shape right handed
-                shape = {type: 3, positions:[{x:3,y:1},{x:4,y:1},{x:4,y:0},{x:5,y:0}]};
+            case 3: // s shape left handed
+                shape = new Shape(5,4,1,[{x:-1,y:1},{x:0,y:1},{x:0,y:0},{x:1,y:0}]);
                 break;
-            case 4: // s shape left handed
-                shape = {type: 4, positions:[{x:3,y:0},{x:4,y:0},{x:4,y:1},{x:5,y:1}]};
-                break;
-            case 5: // l shape right handed
-                shape = {type: 5, positions:[{x:4,y:0},{x:4,y:1},{x:4,y:2},{x:5,y:2}]};
+            case 4: // l shape right handed
+                shape = new Shape(6,4,1,[{x:-1,y:1},{x:-1,y:0},{x:0,y:0},{x:1,y:0}]);
                 break;
             default: // l shape left handed
-                shape = {type: 6, positions: [{x:4,y:0},{x:4,y:1},{x:4,y:2},{x:3,y:2}]};
+                shape = new Shape(7,4,1,[{x:-1,y:0},{x:0,y:0},{x:1,y:0},{x:1,y:1}]);
                 break;
         }
     }
 
     function allocateShape()
     {
-        for (var i = 0; i < shape.positions.length; i++)
+        for (var i = 0; i < shape.gridPositions.length; i++)
             {
-                grid[shape.positions[i].y][shape.positions[i].x] = 1;
+                grid[shape.y+shape.gridPositions[i].y][shape.x+shape.gridPositions[i].x] = 1;
             }
     }
 
     function earaseShape()
     {
-        for (var i = 0; i < shape.positions.length; i++)
+        for (var i = 0; i < shape.gridPositions.length; i++)
             {
-                grid[shape.positions[i].y][shape.positions[i].x] = 0;
+                grid[shape.y+shape.gridPositions[i].y][shape.x+shape.gridPositions[i].x] = 0;
             }
     }
 
@@ -87,7 +98,7 @@
         
         if(shapeState == true)
         {
-            console.log('here');
+            
             pickShape();
             shapeState = false;
             allocateShape();   
@@ -95,7 +106,7 @@
         }
         else
         {
-            newShape = advance();  
+            advance();  
             detectOverlap();
             draw();
         }
@@ -104,10 +115,10 @@
     function findMaxY()
     {
         var maxY = 0;
-        for(var i =0; i < shape.positions.length; i++)
+        for(var i =0; i < shape.gridPositions.length; i++)
         {
-            if (shape.positions[i].y > maxY)
-                maxY = shape.positions[i].y
+            if (shape.y+shape.gridPositions[i].y > maxY)
+                maxY = shape.gridPositions[i].y+shape.y;
         }
         return maxY;
     }
@@ -122,11 +133,9 @@
     function advance()
     {
         earaseShape();
-        for (var i = 0; i < shape.positions.length; i++)
-        {
-            shape.positions[i].y += 1;
-        }
+        shape.y += 1;
         allocateShape();
+        rotateShape();
     }
 
     function draw()
@@ -154,6 +163,19 @@
         //     block.x -= 40;
         //     leftPressed = false;
         // }
+    }
+
+
+    function rotateShape()
+    {
+        earaseShape();
+        for (var i=0; i < shape.gridPositions.length; i++)
+        {
+           var tempY = shape.gridPositions[i].y;
+           shape.gridPositions[i].y = shape.gridPositions[i].x*-1;
+           shape.gridPositions[i].x = tempY;
+        }
+        allocateShape();
     }
 
     // function atBottom(yPos)
