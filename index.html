@@ -1,0 +1,169 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  
+    <title>WickedParts</title>
+    <style>
+        .form-statuses {
+            padding: 0;
+            position: relative;
+            top: 7px;
+            visibility: hidden;
+        }
+
+        .check-box{
+          position: relative;
+          top: -30px;
+        }
+
+        .item-description{
+          padding:0px;
+          margin: 0px;
+          position: relative;
+          top: -70px;
+          left: 140px;
+          border: 0px;
+        }
+
+        p {
+          padding: 0px;
+          margin-bottom: 5px;
+          margin-top: 5px;
+          border: 0px;
+        }
+
+        td {
+          margin: 0px;
+        }
+    </style>
+  </head>
+  
+  <body onload="updatePrices()" onreset="resetPage()" onsubmit="submitPage()">
+      <h1>Wicked Parts</h1>
+      <hr>
+      <h2 class="form">Shopping Cart</h2>
+      <table class="form">
+        <tr>
+          <td>
+            <input id="gigabyte-check" class="check-box" type="checkbox" checked onchange="updatePrices()">
+            <img src="motherboard.jpg" alt="Gigabyte motherboard" height="60" width="90"/>
+            <div class="item-description">
+              <p>GIGABYTE GA-970A-DS3P FX Core 990FX SATA 6Gb/s USB 3.1 ATX AMD Motherboard  -$
+                <span id="gigabyte-span">109.99</span>
+              </p>
+              Quantity 
+              <input id="gigabyte" type="number" min="1" max="5" value="1" onclick="updatePrice(this.value, this.id)">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input id="x11-check" class="check-box" type="checkbox" checked onchange="updatePrices()">
+            <img src="core.png" alt="x11 Fussion Core" height="60" width="60"/>
+            <div class="item-description">
+                <p>Core x11 Fussion Quad-Core 4.2 GHz Desktop Processor  -$
+                  <span id="x11-span">299.99</span>
+                </p>
+                Quantity:
+                <input id="x11" type="number" min="1" max="5" value="1" onclick="updatePrice(this.value, this.id)">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input id="razer-check" class="check-box" type="checkbox" checked onchange="updatePrices()">
+            <img src="mouse.jpg" alt="RAZER Mouse" height="60" width="90"/>
+            <div class="item-description">
+                <p>RAZER DeathAdder Black Wired Optical Precision Gaming Mouse - 3.5G Infrared Sensor  -$
+                  <span id="razer-span">49.99</span>
+                </p>
+                Quantity 
+                <input id="razer" type="number" min="1" max="5" value="1" onclick="updatePrice(this.value, this.id)">
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <form class="form">
+        <div>
+          Full Name: 
+          <input id="first-name" oninput="validName(this.value, this.id)" placeholder="First"> 
+          </input>
+          <img id="first-name-img" class="form-statuses"/>
+          <input id="last-name" oninput="validName(this.value, this.id)" placeholder="Last"> 
+          </input>
+          <img id="last-name-img" class="form-statuses"/>
+          <br><br>
+        </div>
+        <div>
+          Address Line 1: 
+          <input id="address-1" oninput="validAddress(this.value, this.id)" placeholder="25 F Street">
+          </input>
+          <img id="address-1-img" class="form-statuses"/>
+          <br><br> 
+        </div>
+        <div>
+          Address Line 2: 
+          <input id="address-2" oninput="validAddress(this.value, this.id)" placeholder="Apt 4, P.O. Box 4">
+          </input>
+          <img id="address-2-img" class="form-statuses"/>
+          <br><br>
+        </div>
+        <div>
+          City: 
+          <input id="city" oninput="validCity(this.value, this.id)" placeholder="Salt Lake City">
+          </input>
+          <img id="city-img" class="form-statuses"/>
+          <br><br>          
+        </div>
+        <div>
+          State: 
+          <input id="state-abbreviation" oninput="validState(this.value, this.id)" placeholder="UT">
+          </input>
+          <img id="state-abbreviation-img" class="form-statuses"/>
+          <br><br>
+        </div>
+        <div>
+          ZIP/Postal Code: 
+          <input id="zip-code" oninput="validZipCode(this.value, this.id)" placeholder="84103/84103-4444">
+          </input>
+          <img id="zip-code-img" class="form-statuses"/>
+          <br><br>
+        </div>
+        <div>
+          Phone Number:
+          <input id="phone" oninput="validPhoneNumber(this.value, this.id)" placeholder="XXX-XXX-XXXX">
+          </input>
+          <img id="phone-img" class="form-statuses"/>
+          <br><br>
+        </div>
+        <div>
+          Email: <input id="email" oninput="validEmail(this.value, this.id)" placeholder="wicked@wickedparts.com"></input>
+          <img id="email-img" class="form-statuses"/>
+          <br><br>
+        </div>
+        <div>
+          Credit Card Number: <input id="credit-card" oninput="validCreditCardNumber(this.value, this.id)" placeholder="XXXX XXXX XXXX XXXX">
+          </input>
+          <img id="credit-card-img" class="form-statuses"/>
+          <br><br>
+          Experiation Month: <input id="credit-card-month" oninput="validDate()" placeholder="1">
+          </input>
+          <img id="credit-card-month-img" class="form-statuses"/>
+          Experiation Year: <input id="credit-card-year" oninput="validDate()" placeholder="2021">
+          </input>
+          <img id="credit-card-year-img" class="form-statuses"/>
+        </div>
+        <br>
+        <div>
+          <p id="subtotal"></p>
+          <p id="shipping"></p>
+          <p id="tax"></p>
+          <p id="total"></p>
+        </div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>     
+    <script type="text/javascript" src="week07.js"></script>
+  </body>
+</html>
