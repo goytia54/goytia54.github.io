@@ -2,17 +2,76 @@
 <html>
   <head>
     <title>Local Storage/JSON</title>
+    <style>
+      p {
+        color:red;
+      }
+    </style>
   </head>
-  <body>
-  
+  <body onload="getCarsFromLocalStorage()">
+        
+    <div id="cars"></div>
+    
+    Add New Car:<br><br>
+    Make:<input id="car-make" type="text"></input>
+    Model:<input id="car-model"></input>
+    <button id="add-car">Add Car</button>
+
   </body>
   <script>
-    var car = {};
-    car.wheels = 4;
-    car.doors = 2;
-    car.sound = 'vroom';
-    car.name = 'Lightning McQueen';
-    localStorage.setItem( 'car', JSON.stringify(car) );
-    console.log( JSON.parse( localStorage.getItem( 'car' ) ) );
+    
+    // var cars = {};
+    // var car = {};
+    // car.make = "chevy";
+    // car.mode = "camaro";
+
+    // cars.lot = [cars];
+    // cars.lot.push(car);
+    // console.log(cars);
+
+    function getCarsFromLocalStorage()
+    {
+        var carsDiv = document.getElementById("cars");
+        if(localStorage.getItem("cars"))
+        {
+            var cars = JSON.parse(localStorage.getItem('cars'));
+            for(var i = 0; i < cars.entries.length;i++)
+            {
+              var newElement = document.createElement("p");
+              newElement.innerHTML = cars.entries[i].make + " " + cars.entries[i].model;
+              document.getElementById("cars").appendChild(newElement);
+            }
+        }
+        else
+        { 
+            var newElement = document.createElement("p");
+            newElement.innerHTML = "No Cars On Lot";
+            document.getElementById("cars").appendChild(newElement);
+        }
+    }
+
+    document.getElementById("add-car").addEventListener('click', function()
+    {
+        console.log("here")
+        var car = {};
+        car.make = document.getElementById("car-make").value;
+        car.model = document.getElementById("car-model").value;
+        var cars;
+        if(localStorage.getItem('cars'))
+        {
+            console.log("here");
+            cars = JSON.parse(localStorage.getItem('cars'))
+            cars.entries.push(car);
+            localStorage.setItem('cars',JSON.stringify(cars));
+        }
+        else
+        {
+            console.log("here");
+            cars = {};
+            cars.entries = [car];
+            localStorage.setItem('cars',JSON.stringify(cars));
+        }
+    });
+
   </script>
 </html>
