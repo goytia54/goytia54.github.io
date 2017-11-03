@@ -49,14 +49,12 @@
         var cars;
         if(localStorage.getItem('cars'))
         {
-            console.log("here");
             cars = JSON.parse(localStorage.getItem('cars'))
             cars.entries.push(car);
             localStorage.setItem('cars',JSON.stringify(cars));
         }
         else
         {
-            console.log("here");
             cars = {};
             cars.entries = [car];
             localStorage.setItem('cars',JSON.stringify(cars));
