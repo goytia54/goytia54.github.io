@@ -13,14 +13,14 @@
     <div id="cars"></div>
     
     Add New Car:<br><br>
-    Make:<input id="car-make" type="text"></input>
-    Model:<input id="car-model"></input>
+    Make:
+    <input id="car-make" type="text"></input>
+    Model:
+    <input id="car-model"></input>
     <button id="add-car">Add Car</button>
-
-  </body>
-  <script>
-    function getCarsFromLocalStorage()
-    {
+    <script>
+      function getCarsFromLocalStorage()
+      {
         var carsDiv = document.getElementById("cars");
         if(localStorage.getItem("cars"))
         {
@@ -38,10 +38,10 @@
             newElement.innerHTML = "No Cars On Lot";
             document.getElementById("cars").appendChild(newElement);
         }
-    }
+      }
 
-    document.getElementById("add-car").addEventListener('click', function()
-    {
+      document.getElementById("add-car").addEventListener('click', function()
+      {
         console.log("here")
         var car = {};
         car.make = document.getElementById("car-make").value;
@@ -61,7 +61,8 @@
             cars.entries = [car];
             localStorage.setItem('cars',JSON.stringify(cars));
         }
-    });
-
-  </script>
+      });
+    </script>
+  </body>
+  
 </html>
