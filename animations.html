@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Transform, transition, animation</title>
+    <style>
+    	div { 
+            background-color:yellow;
+            width: 200px;
+            height: 300px;
+            transition: width 2s, height 2s, transform 2s, background-color 2s;
+        }
+
+        p {
+            color:white;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            width: 100px;
+            text-align: center;
+        }
+
+        @keyframes example {
+        0%   {background-color: red;}
+        20%  {background-color: orange;}
+        40%  {background-color: yellow;}
+        60% {background-color: green;}
+        80% {background-color: blue;}
+        100% {background-color: violet;}
+}
+
+
+    </style>
+</head>
+<body>
+    <p>Tetris</p>
+    <div id="test-block" onmouseover="transitionDiv()" onmouseout="resetDiv()">Practice Div</div>
+    <button onclick="translateDiv()">Translate</button>
+    <button onclick="rotateDiv()">Rotate</button>
+    <button onclick="matrixDiv()">Matrix</button>
+    <script type="text/javascript">
+        function resetDiv()
+        {
+            var div = document.getElementById("test-block")
+            div.style.width = "200px";
+            div.style.height = "300px";
+            div.style.backgroundColor = "yellow";
+            div.style.transform="rotate(360deg)";
+        }
+
+        function translateDiv()
+        {
+            document.getElementById("test-block").style.transform="translateX(50px)";
+        }
+
+        function rotateDiv()
+        {
+            document.getElementById("test-block").style.transform="rotate(90deg)";
+        }
+
+        function matrixDiv()
+        {
+            document.getElementById("test-block").style.transform="matrix(1, -0.3, 0, 1, 0, 0)"
+        }
+
+        function transitionDiv()
+        {
+            var div = document.getElementById("test-block")
+            div.style.width = "300px";
+            div.style.height = "400px";
+            div.style.backgroundColor = "rgba(0, 245, 212, 0.815)";
+            div.style.transform="rotate(180deg)";
+        }
+    </script>
+</body>
+</html>
