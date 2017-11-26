@@ -90,6 +90,50 @@
             }
     }
 
+    function checkForLine()
+    {
+        var rows = [];
+        for (var i = 0; i < 20; i++)
+        {
+            var line = grid[i].toString();
+            if (line.search("0") == -1)
+            {
+                deleteRow(i);
+                rows.push(i);
+            }
+        }
+        pushBlocksDown(rows[0], rows[rows.length-1]);
+    }
+
+    function pushBlocksDown(begin, end)
+    {
+        while(end >= 0)
+        {
+            if(begin > 0)
+            {
+                for(var i = 0; i < 10; i++)
+                {
+                    grid[end][i] = grid[begin-1][i];
+                }
+            }
+            else
+            {
+                deleteRow(end);
+            }
+            end-=1;
+            begin-=1;
+        }
+    }
+
+    function deleteRow(i)
+    {
+        for(var j = 0; j < 10; j++)
+        {
+            grid[i][j] = 0;
+        }
+    }
+
+
     function main()
     {
         if(gameState == false)
@@ -101,6 +145,7 @@
         
         if(shapeState == true)
         {
+            checkForLine();
             pickShape();
             shapeState = false;
             allocateShape();   
@@ -110,10 +155,10 @@
         {
             advance();  
             draw();
+
         }
     }
 
-    
     function inBoundary(movement)
     {
         for(var i=0; i < shape.gridPositions.length; i++)
@@ -134,13 +179,13 @@
         for(var i=0; i < shape.gridPositions.length; i++)
         {
             var newY = 1 + shape.gridPositions[i].y + shape.y;
-            var x = shape.gridPositions[i].x+shape.x
-            var newSpace = grid[newY][x]
-            if(newY <= 19 && newSpace != 0)
+            if( newY > 19)
             {
                 return true;
             }
-            else if( newY > 19)
+            var x = shape.gridPositions[i].x+shape.x
+            var newSpace = grid[newY][x]
+            if(newSpace != 0)
             {
                 return true;
             }
@@ -234,7 +279,7 @@
     }
 
    
-    setInterval(main, 1000);
+    setInterval(main, 500);
 
     document.addEventListener("keyup", keyUpHandler, false);
     
