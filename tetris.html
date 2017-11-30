@@ -159,7 +159,20 @@
         }
     }
 
-    function inBoundary(movement)
+    function inBoundaryY(movement)
+    {
+        for(var i=0; i < shape.gridPositions.length; i++)
+        {
+            var newY = movement + shape.gridPositions[i].y + shape.y;
+            if( newY > 19  || newY < 0)
+            {
+                return false
+            }
+        }
+        return true; 
+    }
+
+    function inBoundaryX(movement)
     {
         for(var i=0; i < shape.gridPositions.length; i++)
         {
@@ -227,7 +240,7 @@
 
         if(rightPressed && shape.x < 10) {
             earaseShape();
-            if (inBoundary(1))
+            if (inBoundaryX(1))
             {
                 shape.x += 1;
             }
@@ -236,7 +249,7 @@
         }
         else if(leftPressed && shape.x > 0) {
             earaseShape();
-            if (inBoundary(-1))
+            if (inBoundaryX(-1))
             { 
                 shape.x -= 1;
             }
@@ -260,6 +273,22 @@
            shape.gridPositions[i].y = shape.gridPositions[i].x*-1;
            shape.gridPositions[i].x = tempY;
         }
+        while(!inBoundaryX(0))
+        {
+            if(shape.x <= 4)
+                shape.x +=1
+            else
+                shape.x -=1
+        }
+        while(!inBoundaryY(0))
+        {
+            if(shape.y <= 10)
+                shape.y +=1
+            else
+                shape.y -=1
+        }
+
+
         allocateShape();
     }
 
@@ -279,7 +308,7 @@
     }
 
    
-    setInterval(main, 500);
+    setInterval(main, 700);
 
     document.addEventListener("keyup", keyUpHandler, false);
     
