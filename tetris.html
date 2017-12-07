@@ -2,16 +2,17 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Tetris</title>
     <style>
     	* { padding: 0; margin: 0 auto; }
         body{ margin:0 auto; }
-        #header{ font-size: 80px; font-weight: bold; margin: 0 auto; width: 400px;}
+        #header{ font-size: 80px; font-weight: bold; margin: 0 auto; width: 420px; font-family: "Aldrich"}
     	canvas { background:black; display: block; margin: 0 auto; }
-        #button-box {width: 300px; margin: auto; border:1px}
-        .function-buttons { font-size: 50px; background-color: red; display:block; border: none; padding: 3px; }
-        .directional-buttons { font-size: 50px; background-color: red; padding: 0 8px; margin: 0 auto; border: none}
-        #direction { width: 140px; margin: 0 auto;}
+        #button-box {width: 315px; margin: auto; border:1px}
+        .function-buttons { font-size: 50px; background-color: red; border: none; padding: 3px; font-family: "Aldrich"; color: white}
+        .directional-buttons { font-size: 50px; background-color: red; padding: 0 8px; margin: 0 auto; border: none; font-family: "Aldrich"; color: white}
 
         #t1-span{ color:red; animation-name:t1; animation-duration: 3s; animation-iteration-count: infinite }
         #e-span{ color: orange; animation-name:e; animation-duration: 3s; animation-iteration-count: infinite }
@@ -94,12 +95,13 @@
 <canvas id="myCanvas" width="250" height="500"></canvas>
 <br>
 <div id="button-box">
-    <button style="display:block" class="function-buttons" id="up-button" onclick="buttonClick(this.id)">Rotate</button>
-    <br>
-    <div id="direction">
-        <button class="directional-buttons" id="left-button" onclick="buttonClick(this.id)">&#8592;</button>
-        <button class="directional-buttons" id="right-button" onclick="buttonClick(this.id)">&#8594;</button>
-    </div>
+        <button class="directional-buttons" id="left-button" onclick="buttonClick(this.id)"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <button class="function-buttons" id="up-button" onclick="buttonClick(this.id)">Rotate</button>
+        <button class="directional-buttons" id="right-button" onclick="buttonClick(this.id)"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+
+        
+        
+
 </div>
 <script>
     var canvas = document.getElementById("myCanvas");
