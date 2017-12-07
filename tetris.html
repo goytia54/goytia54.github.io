@@ -6,8 +6,12 @@
     <style>
     	* { padding: 0; margin: 0 auto; }
         body{ margin:0 auto; }
-        #header{ font-size: 80px; font-weight: bold;}
+        #header{ font-size: 80px; font-weight: bold; margin: 0 auto; width: 400px;}
     	canvas { background:black; display: block; margin: 0 auto; }
+        #button-box {width: 300px; margin: auto; border:1px}
+        .function-buttons { font-size: 50px; background-color: red; display:block; border: none; padding: 3px; }
+        .directional-buttons { font-size: 50px; background-color: red; padding: 0 8px; margin: 0 auto; border: none}
+        #direction { width: 140px; margin: 0 auto;}
 
         #t1-span{ color:red; animation-name:t1; animation-duration: 3s; animation-iteration-count: infinite }
         #e-span{ color: orange; animation-name:e; animation-duration: 3s; animation-iteration-count: infinite }
@@ -88,7 +92,15 @@
     </p>
 
 <canvas id="myCanvas" width="250" height="500"></canvas>
-
+<br>
+<div id="button-box">
+    <button style="display:block" class="function-buttons" id="up-button" onclick="buttonClick(this.id)">Rotate</button>
+    <br>
+    <div id="direction">
+        <button class="directional-buttons" id="left-button" onclick="buttonClick(this.id)">&#8592;</button>
+        <button class="directional-buttons" id="right-button" onclick="buttonClick(this.id)">&#8594;</button>
+    </div>
+</div>
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -418,6 +430,20 @@
 
     document.addEventListener("keyup", keyUpHandler, false);
     
+    function buttonClick(button) {
+        console.log("here");
+        if(button == "left-button"){
+            leftPressed = true;
+        }
+        else if (button == "right-button")
+        {
+            rightPressed = true;
+        }
+        else
+        {
+            upPressed = true;
+        }
+    }
 
     function keyUpHandler(e) {
         if(e.keyCode == 39) {
