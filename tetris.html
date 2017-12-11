@@ -10,18 +10,25 @@
     	* { padding: 0; margin: 0 auto; }
         body{ margin:0 auto; }
         #header{ font-size: 80px; font-weight: bold; margin: 0 auto; width: 420px; font-family: "Aldrich"}
-    	canvas { background:black; display: block; margin: 0 auto; }
+    	canvas { background:black; display: block; margin: 0 auto; border: 10px solid red; border-radius: 20px;
+                animation-name: border; animation-duration: 5s; animation-iteration-count: infinite}
         #button-box {width: 315px; margin: auto; border:1px}
         .function-buttons { font-size: 50px; background-color: red; border: none; padding: 3px; font-family: "Aldrich"; color: white}
         .directional-buttons { font-size: 50px; background-color: red; padding: 0 8px; margin: 0 auto; border: none; font-family: "Aldrich"; color: white}
 
-        #t1-span{ color:red; animation-name:t1; animation-duration: 3s; animation-iteration-count: infinite }
-        #e-span{ color: orange; animation-name:e; animation-duration: 3s; animation-iteration-count: infinite }
-        #t2-span{ color: yellow; animation-name:t2; animation-duration: 3s; animation-iteration-count: infinite }
-        #r-span{ color: green; animation-name:r; animation-duration: 3s; animation-iteration-count: infinite }
-        #i-span{ color: blue; animation-name:i; animation-duration: 3s; animation-iteration-count: infinite }
-        #s-span{ color: violet; animation-name:s; animation-duration: 3s; animation-iteration-count: infinite }
-        
+
+        #t1-span{ color:red; animation-name:t1; animation-duration: 5s; animation-iteration-count: infinite }
+        #e-span{ color: orange; animation-name:e; animation-duration: 5s; animation-iteration-count: infinite }
+        #t2-span{ color: yellow; animation-name:t2; animation-duration: 5s; animation-iteration-count: infinite }
+        #r-span{ color: green; animation-name:r; animation-duration: 5s; animation-iteration-count: infinite }
+        #i-span{ color: blue; animation-name:i; animation-duration: 5s; animation-iteration-count: infinite }
+        #s-span{ color: violet; animation-name:s; animation-duration: 5s; animation-iteration-count: infinite }
+
+        .directional-buttons:active {
+            background-color: green;
+            transform: translateY(4px);
+        }
+
         @keyframes t1{
             0%   {color: red;}
             20%  {color: orange;}
@@ -81,6 +88,22 @@
             100% {color: blue;}
         }
 
+        @keyframes buttons
+        {
+            0% {background-color:green; width: 50px;}
+            100% {background-color: red; width: 60px;}
+        }
+
+        @keyframes border
+        {   
+            0%   {border-color: red; border-style:solid}
+            20%  {border-color: orange; border-style:dashed}
+            40%  {border-color: yellow; border-style:solid}
+            60% {border-color: green; border-style:dashed}
+            80% {border-color: blue; border-style: solid}
+            100% {border-color: violet; border-style:dashed}
+        }
+
     </style>
 </head>
 <body>
@@ -116,6 +139,7 @@
     var shapeState = true;
     var gameState = false;
     var shape;
+    var downCount = 0;
     var blockColors = {1:"#ffff00", 2:"#ff0000", 3:"#00ff00", 4:"#ff00ff", 5:"#0000ff", 6:"#00ffff", 7:"#ffa500"};
     //shape constructor
     function Shape(type, x, y, gridPositions, fillStyle)
@@ -144,25 +168,25 @@
         switch(randomShapeNumber)
         {   
             case 1: // block shape
-                 shape = new Shape(1, 4, 1, [{x:-1,y:1},{x:0,y:1},{x:-1,y:0},{x:0,y:0}], "#ffff00"); 
+                 shape = new Shape(1, 4, 0, [{x:-1,y:1},{x:0,y:1},{x:-1,y:0},{x:0,y:0}], "#ffff00"); 
                  break;
             case 2: // long line
-                 shape = new Shape(2,4,2,[{x:0,y:1},{x:0,y:2},{x:0,y:0},{x:0,y:-1}], "#ff0000");
+                 shape = new Shape(2,4,1,[{x:0,y:1},{x:0,y:2},{x:0,y:0},{x:0,y:-1}], "#ff0000");
                  break;
             case 3: // t shape
-                shape = new Shape(3,4,1,[{x:-1,y:0},{x:0,y:0},{x:0,y:1},{x:1,y:0}], "#00ff00");
+                shape = new Shape(3,4,0,[{x:-1,y:0},{x:0,y:0},{x:0,y:1},{x:1,y:0}], "#00ff00");
                 break;
             case 4: // s shape right handed
-                shape = new Shape(4,4,1,[{x:-1,y:0},{x:0,y:0},{x:0,y:1},{x:1,y:1}], "#ff00ff");
+                shape = new Shape(4,4,0,[{x:-1,y:0},{x:0,y:0},{x:0,y:1},{x:1,y:1}], "#ff00ff");
                 break;
             case 5: // s shape left handed
-                shape = new Shape(5,4,1,[{x:-1,y:1},{x:0,y:1},{x:0,y:0},{x:1,y:0}], "#ffbf00");
+                shape = new Shape(5,4,0,[{x:-1,y:1},{x:0,y:1},{x:0,y:0},{x:1,y:0}], "#ffbf00");
                 break;
             case 6: // l shape right handed
-                shape = new Shape(6,4,1,[{x:-1,y:1},{x:-1,y:0},{x:0,y:0},{x:1,y:0}], "#00ffff");
+                shape = new Shape(6,4,0,[{x:-1,y:1},{x:-1,y:0},{x:0,y:0},{x:1,y:0}], "#00ffff");
                 break;
             default: // l shape left handed
-                shape = new Shape(7,4,1,[{x:-1,y:0},{x:0,y:0},{x:1,y:0},{x:1,y:1}], "#ffa500");
+                shape = new Shape(7,4,0,[{x:-1,y:0},{x:0,y:0},{x:1,y:0},{x:1,y:1}], "#ffa500");
                 break;
         }
     }
@@ -305,7 +329,13 @@
         earaseShape();
         if(!atBottom())
         {
-            shape.y += 1;
+            if(downCount >= 10){
+                shape.y += 1;
+                downCount = 0;
+            }
+            else {
+                downCount += 1;
+            }
         }
         else
         {
@@ -430,12 +460,11 @@
     }
 
    
-    setInterval(main, 700);
+    setInterval(main, 100);
 
     document.addEventListener("keyup", keyUpHandler, false);
     
     function buttonClick(button) {
-        console.log("here");
         if(button == "left-button"){
             leftPressed = true;
         }
@@ -462,6 +491,9 @@
         }
 
     }
+
+
+
 
 
 </script>
