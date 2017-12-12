@@ -128,10 +128,6 @@
         <button class="directional-buttons" id="left-button" onclick="buttonClick(this.id)"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
         <button class="function-buttons" id="up-button" onclick="buttonClick(this.id)">Rotate</button>
         <button class="directional-buttons" id="right-button" onclick="buttonClick(this.id)"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-
-        
-        
-
 </div>
 <script>
     var canvas = document.getElementById("myCanvas");
@@ -270,6 +266,11 @@
             checkForLine();
             pickShape();
             shapeState = false;
+            if(isOverlap(0,-1) && isOverlap(-1,0) && isOverlap(1,0))
+            {
+                gameState = false;
+                return;
+            }
             allocateShape();   
             draw();
         }
@@ -277,7 +278,6 @@
         {
             advance();  
             draw();
-
         }
     }
 
@@ -334,7 +334,7 @@
         earaseShape();
         if(!atBottom())
         {
-            if(downCount >= 10){
+            if(downCount >= 1){
                 shape.y += 1;
                 downCount = 0;
             }
