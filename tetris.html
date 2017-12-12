@@ -11,22 +11,28 @@
         body{ margin:0 auto; }
         #header{ font-size: 80px; font-weight: bold; margin: 0 auto; width: 420px; font-family: "Aldrich"}
     	canvas { background:black; display: block; margin: 0 auto; border: 10px solid red; border-radius: 20px;
-                animation-name: border; animation-duration: 5s; animation-iteration-count: infinite}
+                animation-name: border; animation-duration: 5s; animation-iteration-count: infinite; display: none}
         #button-box {width: 315px; margin: auto; border:1px}
-        .function-buttons { font-size: 50px; background-color: red; border: none; padding: 3px; font-family: "Aldrich"; color: white}
-        .directional-buttons { font-size: 50px; background-color: red; padding: 0 8px; margin: 0 auto; border: none; font-family: "Aldrich"; color: white}
-
-
+        .function-buttons { font-size: 50px; background-color: red; border: none; padding: 3px; font-family: "Aldrich"; color: white; display: none}
+        .directional-buttons { font-size: 50px; background-color: red; padding: 0 8px; margin: 0 auto; border: none; font-family: "Aldrich"; color: white; display: none}
         #t1-span{ color:red; animation-name:t1; animation-duration: 5s; animation-iteration-count: infinite }
         #e-span{ color: orange; animation-name:e; animation-duration: 5s; animation-iteration-count: infinite }
         #t2-span{ color: yellow; animation-name:t2; animation-duration: 5s; animation-iteration-count: infinite }
         #r-span{ color: green; animation-name:r; animation-duration: 5s; animation-iteration-count: infinite }
         #i-span{ color: blue; animation-name:i; animation-duration: 5s; animation-iteration-count: infinite }
         #s-span{ color: violet; animation-name:s; animation-duration: 5s; animation-iteration-count: infinite }
-
+        #main-menu {width: 300px; height: 400px; background-color: green; margin: auto; padding: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 25px}
+        
+        h1 {text-align: center; font-family: "Aldrich"; font-size: 50px; color: white;}
+        #main-buttons-div{width: 220px; margin: auto; border:1px;}
+        .main-buttons {font-family: "Aldrich"; font-size: 35px; border:none; padding: 10px; font-weight: bold; border: 5px solid black}
         .directional-buttons:active {
             background-color: green;
-            transform: translateY(4px);
+            transform: translateY(4px)
+        }
+
+        .main-buttons:active{
+            transform: translateY(4px)
         }
 
         .function-buttons:active {
@@ -121,7 +127,13 @@
         <span id="i-span">I</span>
         <span id="s-span">S</span>
     </p>
-
+<div id="main-menu">
+    <h1>Main Menu</h1>
+    <br><br>
+    <div id="main-buttons-div">
+        <button onclick="startGame()" class="main-buttons">New Game</button>
+    </div>
+</div>
 <canvas id="myCanvas" width="250" height="500"></canvas>
 <br>
 <div id="button-box">
@@ -152,6 +164,13 @@
         this.fillStyle = fillStyle;
     };
     
+    function startGame(){
+        document.getElementById("main-menu").style.display = "none";
+        document.getElementById("myCanvas").style.display = "block";
+        gameState = true;
+        resetGrid();
+    }
+
     function resetGrid()
     {
         grid = [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],
@@ -254,30 +273,23 @@
 
     function main()
     {
-        if(gameState == false)
-        {
-            resetGrid();
-            gameState = true;
-        }
-        
-        
-        if(shapeState == true)
-        {
-            checkForLine();
-            pickShape();
-            shapeState = false;
-            if(isOverlap(0,-1) && isOverlap(-1,0) && isOverlap(1,0))
-            {
-                gameState = false;
-                return;
+        if(gameState) {
+            if(shapeState == true){
+                checkForLine();
+                pickShape();
+                shapeState = false;
+                if(isOverlap(0,-1) && isOverlap(-1,0) && isOverlap(1,0)){
+                    gameState = false;
+                    return;
+                }
+                allocateShape();   
+                draw();
             }
-            allocateShape();   
-            draw();
-        }
-        else
-        {
-            advance();  
-            draw();
+            else
+            {
+                advance();  
+                draw();
+            }
         }
     }
 
@@ -418,8 +430,6 @@
                 shape.y -=1
         }
 
-        //detectOverlap()
-
         allocateShape();
     }
 
@@ -437,19 +447,7 @@
         return false 
     }
 
-    function detectOverlap()
-    {
-        for(var i=0; i < shape.gridPositions.length; i++)
-        {
-            var newX = shape.gridPositions[i].x + shape.x;
-            var newY = shape.gridPositions[i].y + shape.y;
-            if(grid[newY][newX] != 0)
-            {
-                shape.y -= 1
-                detectOverlap()
-            }   
-        }
-    }
+  
     
 
     function drawSqaure(xPos,yPos, blockType)
