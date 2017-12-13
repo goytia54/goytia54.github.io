@@ -9,12 +9,12 @@
     <style>
     	* { padding: 0; margin: 0 auto; }
         body{ margin:0 auto; }
-        #header{ font-size: 80px; font-weight: bold; margin: 0 auto; width: 420px; font-family: "Aldrich"}
+        #header{ font-size: 80px; font-weight: bold; margin: 0 auto; width: 310px; font-family: "Aldrich"; letter-spacing:-10px}
     	canvas { background:black; display: block; margin: 0 auto; border: 10px solid red; border-radius: 20px;
                 animation-name: border; animation-duration: 5s; animation-iteration-count: infinite; display: none}
-        #button-box {width: 315px; margin: auto; border:1px}
-        .function-buttons { font-size: 50px; background-color: red; border: none; padding: 3px; font-family: "Aldrich"; color: white; display: none}
-        .directional-buttons { font-size: 50px; background-color: red; padding: 0 8px; margin: 0 auto; border: none; font-family: "Aldrich"; color: white; display: none}
+        #button-box {width: 315px; margin: auto; border:1px; display: none}
+        .function-buttons { font-size: 50px; background-color: red; border: none; padding: 3px; font-family: "Aldrich"; color: white; }
+        .directional-buttons { font-size: 50px; background-color: red; padding: 0 8px; margin: 0 auto; border: none; font-family: "Aldrich"; color: white; }
         #t1-span{ color:red; animation-name:t1; animation-duration: 5s; animation-iteration-count: infinite }
         #e-span{ color: orange; animation-name:e; animation-duration: 5s; animation-iteration-count: infinite }
         #t2-span{ color: yellow; animation-name:t2; animation-duration: 5s; animation-iteration-count: infinite }
@@ -22,9 +22,11 @@
         #i-span{ color: blue; animation-name:i; animation-duration: 5s; animation-iteration-count: infinite }
         #s-span{ color: violet; animation-name:s; animation-duration: 5s; animation-iteration-count: infinite }
         #main-menu {width: 300px; height: 400px; background-color: green; margin: auto; padding: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 25px}
-        
+        #game-over {width: 300px; height: 400px; background-color: violet; margin: auto; padding: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 25px; display: none}
+        #down-div {width: 70px; margin: auto; margin-top: 4px;}
         h1 {text-align: center; font-family: "Aldrich"; font-size: 50px; color: white;}
         #main-buttons-div{width: 220px; margin: auto; border:1px;}
+        #game-over-div{width: 220px; margin: auto; border:1px;}
         .main-buttons {font-family: "Aldrich"; font-size: 35px; border:none; padding: 10px; font-weight: bold; border: 5px solid black}
         .directional-buttons:active {
             background-color: green;
@@ -140,7 +142,20 @@
         <button class="directional-buttons" id="left-button" onclick="buttonClick(this.id)"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
         <button class="function-buttons" id="up-button" onclick="buttonClick(this.id)">Rotate</button>
         <button class="directional-buttons" id="right-button" onclick="buttonClick(this.id)"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+        <div id="down-div">
+            <button class="directional-buttons" id="down-button"><i class="fa fa-arrow-down" aria-hidden="true"></i></button>
+        </div>
 </div>
+<div id="game-over">
+    <h1>Game Over</h1>
+    <br><br>
+    <div id="game-over-div">
+        <button onclick="startGame()" class="main-buttons">New Game</button>
+        <br><br>
+        <button onclick="mainMenu()" class="main-buttons">Main Menu</button>
+    </div>
+</div>
+
 <script>
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -164,9 +179,23 @@
         this.fillStyle = fillStyle;
     };
     
+    function gameOver(){
+        document.getElementById("myCanvas").style.display ="none";
+        document.getElementById("button-box").style.display = "none";
+        document.getElementById("game-over").style.display = "block";
+    }
+
+    function mainMenu(){
+        document.getElementById("main-menu").style.display = "block";
+        document.getElementById("game-over").style.display = "none"; 
+    }
+
+
     function startGame(){
+        document.getElementById("game-over").style.display = "none";
         document.getElementById("main-menu").style.display = "none";
         document.getElementById("myCanvas").style.display = "block";
+        document.getElementById("button-box").style.display = "block";
         gameState = true;
         resetGrid();
     }
@@ -280,6 +309,7 @@
                 shapeState = false;
                 if(isOverlap(0,-1) && isOverlap(-1,0) && isOverlap(1,0)){
                     gameState = false;
+                    gameOver();
                     return;
                 }
                 allocateShape();   
@@ -346,7 +376,7 @@
         earaseShape();
         if(!atBottom())
         {
-            if(downCount >= 1){
+            if(downCount >= 10){
                 shape.y += 1;
                 downCount = 0;
             }
