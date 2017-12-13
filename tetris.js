@@ -16,22 +16,47 @@ var blockColors = {1:"#ffff00", 2:"#ff0000", 3:"#00ff00", 4:"#ff00ff", 5:"#0000f
 function addListeners(){
     var downButtonTouch = document.getElementById("down-button");
     var rotateScreen = document.getElementsByTagName("canvas")[0];
-    rotateScreen.addEventListener("touchstart", touchRotate, false);
+    var leftButton = document.getElementById("left-button");
+    var rightButton = document.getElementById("right-button");
+    rotateScreen.addEventListener("touchstart", applyTouch, false);
     downButtonTouch.addEventListener("touchstart", applyTouch,false);
-    downButtonTouch.addEventListener("touchend", deApplyTouch,false)
+    downButtonTouch.addEventListener("touchend", deApplyTouch,false);
+    leftButton.addEventListener("touchstart",applyTouch,false);
+    leftButton.addEventListener("touchend",deApplyTouch,false);
+    rightButton.addEventListener("touchstart",applyTouch,false);
+    rightButton.addEventListener("touchend",deApplyTouch,false);    
 }
 
-function touchRotate(evt){
-    upPressed = true;
-}
 
 function applyTouch(evt){
-    downPressed = true;
+    var elementId = evt.target.id;
+    if (elementId == "down-button" || elementId == "down-fa"){
+        downPressed = true;
+    }
+    else if (elementId == "right-button" || elementId == "right-fa"){
+        rightPressed = true;
+    }
+    else if (elementId == "left-button" || elementId == "left-fa"){
+        leftPressed = true;
+    }
+    else if(elementId == "myCanvas")
+    {
+        upPressed = true;
+    }
 }   
 
 function deApplyTouch(evt)
 {
-    downPressed = false;
+    var elementId = evt.target.id;
+    if (elementId == "down-button" || elementId == "down-fa"){
+        downPressed = false;
+    }
+    else if (elementId == "right-button" || elementId == "right-fa"){
+        rightPressed = false;
+    }
+    else if (elementId == "left-button" || elementId == "left-fa"){
+        leftPressed = false;
+    }
 }
 
 //shape constructor
@@ -282,7 +307,6 @@ function draw()
             shape.x += 1;
         }
         allocateShape();
-        rightPressed = false;
     }
     else if(leftPressed && shape.x > 0) {
         earaseShape();
@@ -291,7 +315,6 @@ function draw()
             shape.x -= 1;
         }
         allocateShape();
-        leftPressed = false;
     }
 
     else if(upPressed) {
