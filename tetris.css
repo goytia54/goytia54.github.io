@@ -1,0 +1,111 @@
+* { padding: 0; margin: 0 auto; }
+body{ margin:0 auto; }
+#header{ font-size: 80px; font-weight: bold; margin: 0 auto; width: 310px; font-family: "Aldrich"; letter-spacing:-10px}
+canvas { background:black; display: block; margin: 0 auto; border: 10px solid red; border-radius: 20px;
+        animation-name: border; animation-duration: 5s; animation-iteration-count: infinite; display: none}
+#button-box {width: 190px; margin: auto; border:1px; display: none}
+.function-buttons { font-size: 50px; background-color: red; border: none; padding: 3px; font-family: "Aldrich"; color: white; }
+.directional-buttons { font-size: 50px; background-color: red; padding: 0 8px; margin: 0 auto; border: none; font-family: "Aldrich"; color: white; }
+#t1-span{ color:red; animation-name:t1; animation-duration: 5s; animation-iteration-count: infinite }
+#e-span{ color: orange; animation-name:e; animation-duration: 5s; animation-iteration-count: infinite }
+#t2-span{ color: yellow; animation-name:t2; animation-duration: 5s; animation-iteration-count: infinite }
+#r-span{ color: green; animation-name:r; animation-duration: 5s; animation-iteration-count: infinite }
+#i-span{ color: blue; animation-name:i; animation-duration: 5s; animation-iteration-count: infinite }
+#s-span{ color: violet; animation-name:s; animation-duration: 5s; animation-iteration-count: infinite }
+#main-menu {width: 300px; height: 400px; background-color: green; margin: auto; padding: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 25px}
+#game-over {width: 300px; height: 400px; background-color: violet; margin: auto; padding: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 25px; display: none}
+#down-div {width: 70px; margin: auto; margin-top: 4px;}
+h1 {text-align: center; font-family: "Aldrich"; font-size: 50px; color: white;}
+#main-buttons-div{width: 220px; margin: auto; border:1px;}
+#game-over-div{width: 220px; margin: auto; border:1px;}
+.main-buttons {font-family: "Aldrich"; font-size: 35px; border:none; padding: 10px; font-weight: bold; border: 5px solid black}
+.directional-buttons:active {
+    background-color: green;
+    transform: translateY(4px)
+}
+
+.main-buttons:active{
+    transform: translateY(4px)
+}
+
+.function-buttons:active {
+    background-color: green;
+    transform: rotate(-10deg);
+}
+
+@keyframes t1{
+    0%   {color: red;}
+    20%  {color: orange;}
+    40%  {color: yellow;}
+    60% {color: green;}
+    80% {color: blue;}
+    100% {color: violet;}
+}
+
+@keyframes e
+{
+    0%  {color: orange;}
+    20%  {color: yellow;}
+    40% {color: green;}
+    60% {color: blue;}
+    80% {color: violet;}
+    100%   {color: red;}
+} 
+
+@keyframes t2
+{
+    0%  {color: yellow;}
+    20% {color: green;}
+    40% {color: blue;}
+    60% {color: violet;}
+    80% {color: red;}
+    100%  {color: orange;}
+}
+
+@keyframes r
+{
+    0% {color: green;}
+    20% {color: blue;}
+    40% {color: violet;}
+    60% {color: red;}
+    80%  {color: orange;}
+    100%  {color: yellow;}
+}
+
+@keyframes i
+{
+    0% {color: blue;}
+    20% {color: violet;}
+    40% {color: red;}
+    60%  {color: orange;}
+    80%  {color: yellow;}
+    100% {color: green;}
+}
+
+@keyframes s
+{
+    0% {color: violet;}
+    20% {color: red;}
+    40%  {color: orange;}
+    60%  {color: yellow;}
+    80% {color: green;}
+    100% {color: blue;}
+}
+
+@keyframes buttons
+{
+    0% {background-color:green; width: 50px;}
+    100% {background-color: red; width: 60px;}
+}
+
+@keyframes border
+{   
+    0%   {border-color: red; border-style:solid}
+    20%  {border-color: orange; border-style:dashed}
+    40%  {border-color: yellow; border-style:solid}
+    60% {border-color: green; border-style:dashed}
+    80% {border-color: blue; border-style: solid}
+    100% {border-color: violet; border-style:dashed}
+}
+
+</style>
