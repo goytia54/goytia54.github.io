@@ -77,7 +77,8 @@ function gameOver(){
 
 function mainMenu(){
     document.getElementById("main-menu").style.display = "block";
-    document.getElementById("game-over").style.display = "none"; 
+    document.getElementById("game-over").style.display = "none";
+    document.getElementById("instructions").style.display="none" 
 }
 
 
@@ -88,6 +89,15 @@ function startGame(){
     document.getElementById("button-box").style.display = "block";
     gameState = true;
     resetGrid();
+}
+
+function displayInstructions()
+{
+    document.getElementById("game-over").style.display = "none";
+    document.getElementById("main-menu").style.display = "none";
+    document.getElementById("myCanvas").style.display = "none";
+    document.getElementById("button-box").style.display = "none";
+    document.getElementById("instructions").style.display = "block";
 }
 
 function resetGrid()

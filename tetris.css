@@ -1,6 +1,8 @@
 * { padding: 0; margin: 0 auto; }
 body{ margin:0 auto; }
 #header{ font-size: 80px; font-weight: bold; margin: 0 auto; width: 310px; font-family: "Aldrich"; letter-spacing:-10px}
+h2{font-family: "Aldrich"; color: red; font-size:30px}
+p{font-family: "Aldrich"; color:white; font-size:20px}
 canvas { background:black; display: block; margin: 0 auto; border: 10px solid red; border-radius: 20px;
         animation-name: border; animation-duration: 5s; animation-iteration-count: infinite; display: none}
 #button-box {width: 190px; margin: auto; border:1px; display: none}
@@ -12,13 +14,15 @@ canvas { background:black; display: block; margin: 0 auto; border: 10px solid re
 #r-span{ color: green; animation-name:r; animation-duration: 5s; animation-iteration-count: infinite }
 #i-span{ color: blue; animation-name:i; animation-duration: 5s; animation-iteration-count: infinite }
 #s-span{ color: violet; animation-name:s; animation-duration: 5s; animation-iteration-count: infinite }
-#main-menu {width: 300px; height: 400px; background-color: green; margin: auto; padding: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 25px}
-#game-over {width: 300px; height: 400px; background-color: violet; margin: auto; padding: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 25px; display: none}
+#main-menu {width: 300px; height: 280px; background-color: green; margin: auto; padding: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 25px}
+#game-over {width: 300px; height: 280px; background-color: violet; margin: auto; padding: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 25px; display: none}
+#instructions {width: 300px; height: 460px; background-color: orange; margin: auto; padding: 25px; border-top-left-radius: 25px; border-bottom-right-radius: 25px; display: none;}
 #down-div {width: 70px; margin: auto; margin-top: 4px;}
 h1 {text-align: center; font-family: "Aldrich"; font-size: 50px; color: white;}
-#main-buttons-div{width: 220px; margin: auto; border:1px;}
-#game-over-div{width: 220px; margin: auto; border:1px;}
-.main-buttons {font-family: "Aldrich"; font-size: 35px; border:none; padding: 10px; font-weight: bold; border: 5px solid black}
+#main-buttons-div{width: 250px; margin: auto; display: block;}
+#instructions-div{width: 250px; margin: auto; display: block;}
+#game-over-div{width: 250px; margin: auto; border:1px;}
+.main-buttons {font-family: "Aldrich"; font-size: 35px; border:none; padding: 10px; font-weight: bold; border: 5px solid black; width: 250px}
 .directional-buttons:active {
     background-color: green;
     transform: translateY(4px)
@@ -107,5 +111,3 @@ h1 {text-align: center; font-family: "Aldrich"; font-size: 50px; color: white;}
     80% {border-color: blue; border-style: solid}
     100% {border-color: violet; border-style:dashed}
 }
-
-</style>
