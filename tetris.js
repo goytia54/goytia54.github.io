@@ -405,32 +405,34 @@ function drawSqaure(xPos,yPos, blockType)
 
 setInterval(main, 100);
 
+
+document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
-function buttonClick(button) {
-    if(button == "left-button"){
-        leftPressed = true;
-    }
-    else if (button == "right-button")
-    {
-        rightPressed = true;
-    }
-    else
-    {
-        upPressed = true;
-    }
-}
-
-function keyUpHandler(e) {
+function keyDownHandler(e) {
     if(e.keyCode == 39) {
         rightPressed = true;
     }
     else if(e.keyCode == 37) {
         leftPressed = true;
     }
-
     else if(e.keyCode == 38){
         upPressed = true;
     }
+    else if(e.keyCode == 40){
+        downPressed = true;
+    }
 
+}
+
+function keyUpHandler(e) {
+    if(e.keyCode == 39) {
+        rightPressed = false;
+    }
+    else if(e.keyCode == 37){
+        leftPressed = false;
+    }
+    else if(e.keyCode == 40){
+        downPressed = false;
+    }
 }
