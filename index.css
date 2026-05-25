@@ -1,67 +1,220 @@
-#instruction {
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 100px;
-    margin-top: 400px;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#nav-bar {
-    margin: auto;
-    width: 200px;
+:root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --accent: #58a6ff;
 }
 
-
-#header{
-    width: 1200px;
-    margin: auto;
-    height: 100px;
+html {
+    scroll-behavior: smooth;
 }
 
-.headers{
-    margin: 5px auto;
-    text-align: center;
-    font-family: 'Bungee Shade';
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
 }
 
-a{
-    font-family: 'Bungee Shade';
-    text-decoration: none;
-    color: dodgerblue;
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
 }
-#photo-app{
-    width: 1000px;
-    height: 100px;
+
+nav {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
-    margin: auto;
+    gap: 2rem;
 }
 
-p {
-    font-family: 'Arapey';
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 6rem 0 2rem;
+}
+
+.hero {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.summary {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 600px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.entry {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.entry .date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.entry h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0.25rem 0;
+}
+
+.entry p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.education {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.education h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.education p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.interest {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.interest h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.interest p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+#contact .links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+#contact .links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+#contact .links a:hover {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+footer {
+    max-width: 800px;
+    margin: 4rem auto 2rem;
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--border);
     text-align: center;
 }
 
-.myriad {
-    height: 146px;
-    width: 360px;
-    margin-right: 30px;
-    margin-left: -50px;
-    border-radius: 20px;
-    margin-top: 150px;
+footer p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
 }
 
-.starcraft{
-    height: 216px;
-    width: 384px;
-    margin-left: 10px;
-    border-radius: 20px;
-    margin-top: 70px;
-}
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
 
-.champion {
-    height: 405px;
-    width: 324px;
-    border-radius: 20px;
-    margin-top: 30px;
+    nav {
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .interests-grid {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding: 0 1rem;
+    }
 }

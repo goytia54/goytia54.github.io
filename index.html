@@ -3,68 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MRG Home Page</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Arapey' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    <title>Michael Goytia</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#interests">Interests</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-<div id="header">
-    <h1 class="headers">Software Engineer | Chemist | Sports Fanatic | Gamer </h1>
-    <h2 class="headers">Michael Goytia's Home Page</h2>
-</div>
+    <main>
+        <section id="about" class="hero">
+            <h1>Michael Goytia</h1>
+            <p class="tagline">Sr Product Software Engineer at TWDC</p>
+            <p class="summary">
+                Software engineer with a background in chemistry and a passion for building
+                reliable distributed systems. Currently working on media manufacturing
+                orchestration at The Walt Disney Company.
+            </p>
+        </section>
 
-<div id="photo-app">
-    <div @click="showMyriad = !showMyriad" class="myriad">
-        <img v-if="showMyriad"  src="photos/myriad.png" alt="myriad-photo">
-        <p v-if="!showMyriad">I am currently a full-stack software engineer at Myriad Genetics. Before that I have worked at Motorola and 3M.
-            <span>Before I went into software, I was pursuing a PhD in Physical/Theoretical Chemistry at the University of Utah</span>
-        </p>
-    </div>
-    <div @click="showChamp = !showChamp" class="champion" >
-        <img v-if="showChamp" class="champion" src="photos/champions.jpg" alt="champions">
-        <p v-if="!showChamp">This is a picture of my friend Korea and I after winning a pickleball tournament.
-            <span>I like to play lots of sports! I also like to watch sports and some of my favorite</span>
-            <span> teams are the Sacramento Kings and Utah Utes. I also competed at the Div I level in track and field.</span>
-        </p>
-    </div>
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="timeline">
+                <div class="entry">
+                    <span class="date">2021 &ndash; Present</span>
+                    <h3>Sr Product Software Engineer</h3>
+                    <p>The Walt Disney Company &mdash; Core Media Manufacturing</p>
+                </div>
+                <div class="entry">
+                    <span class="date">2019 &ndash; 2021</span>
+                    <h3>Software Engineer</h3>
+                    <p>Myriad Genetics</p>
+                </div>
+                <div class="entry">
+                    <span class="date">Prior</span>
+                    <h3>Engineering Roles</h3>
+                    <p>Motorola &bull; 3M</p>
+                </div>
+            </div>
+            <div class="education">
+                <h3>Education</h3>
+                <p>University of Utah &mdash; Physical / Theoretical Chemistry (PhD coursework)</p>
+            </div>
+        </section>
 
-    <div @click="showGamer = !showGamer" class="starcraft">
-        <img v-if="showGamer" class="starcraft" src="photos/starcraft.jpg" alt="starcraft">
-        <p v-if="!showGamer">This is a photo from one of my favorite video games franchises, StarCraft. Video games played a huge part
-            <span>in my desire to go into programming. I like RTS as well as FPS games</span>
-        </p>
-    </div>
+        <section id="interests">
+            <h2>Interests</h2>
+            <div class="interests-grid">
+                <div class="interest">
+                    <h3>Distributed Systems</h3>
+                    <p>Workflow orchestration, fault tolerance, and media processing at scale.</p>
+                </div>
+                <div class="interest">
+                    <h3>Research</h3>
+                    <p>Exploring graduate school opportunities in computer science and related fields.</p>
+                </div>
+                <div class="interest">
+                    <h3>Sports</h3>
+                    <p>Former D1 track &amp; field athlete. Pickleball competitor. Sacramento Kings and Utah Utes fan.</p>
+                </div>
+                <div class="interest">
+                    <h3>Gaming</h3>
+                    <p>RTS and FPS games. StarCraft franchise enthusiast.</p>
+                </div>
+            </div>
+        </section>
 
-</div>
-<div id ="instruction">
-    <p>*Click on the photos to learn more about me!</p>
-</div>
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="links">
+                <a href="https://github.com/goytia54" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com/in/michaelgoytia" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </section>
+    </main>
 
-
-<?php
-echo
-"<div display='none'>
-<script type='text/javascript'>
-    console.log('They call me slick mick');
-</script>
-</div>
+    <footer>
+        <p>&copy; 2026 Michael Goytia</p>
+    </footer>
 </body>
-
-<script>
-    var app = new Vue({
-        el: '#photo-app',
-        data:{
-            showMyriad: true,
-            showChamp: true,
-            showGamer: true,
-        },
-        methods: {
-        },
-    })
-</script>
-
 </html>
