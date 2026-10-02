@@ -140,6 +140,14 @@ h2 {
     opacity: 0.85;
 }
 
+.research-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    margin-top: 0.75rem;
+}
+
 .education {
     padding: 1.25rem;
     background: var(--surface);
