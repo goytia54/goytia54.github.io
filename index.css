@@ -128,6 +128,11 @@ h2 {
     margin: 0.25rem 0;
 }
 
+.entry h3.company {
+    font-weight: 700;
+    color: #fff;
+}
+
 .entry p {
     color: var(--text-muted);
     font-size: 0.95rem;
