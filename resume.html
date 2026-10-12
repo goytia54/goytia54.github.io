@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Michael Goytia — Resume</title>
+<style>
+  @page {
+    size: letter;
+    margin: 0.45in 0.5in 0.45in 0.5in;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 7.8pt;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #3a3a3a;
+  }
+
+  :root { --accent: #3bbcc5; }
+
+  .header {
+    text-align: center;
+    margin-bottom: 14pt;
+  }
+  .header h1 {
+    font-size: 26pt;
+    font-weight: 300;
+    letter-spacing: 3pt;
+    color: #2a2a2a;
+    margin-bottom: 3pt;
+  }
+  .header .contact {
+    font-size: 7.5pt;
+    letter-spacing: 1.2pt;
+    color: #555;
+  }
+  .sep { color: #999; }
+
+  .top-row {
+    display: flex;
+    gap: 24pt;
+    margin-bottom: 12pt;
+  }
+  .top-left  { flex: 1.15; }
+  .top-right { flex: 0.85; }
+
+  .section-title {
+    font-size: 14pt;
+    font-weight: 300;
+    color: #2a2a2a;
+    letter-spacing: 1.5pt;
+    border-bottom: 1.5pt solid var(--accent);
+    padding-bottom: 3pt;
+    margin-bottom: 8pt;
+  }
+
+  .sub-heading {
+    font-size: 7pt;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.8pt;
+    margin-bottom: 2pt;
+    margin-top: 5pt;
+  }
+  .sub-heading:first-child { margin-top: 0; }
+
+  .tech-grid { display: flex; gap: 14pt; }
+  .tech-col { flex: 1; }
+
+  .edu-entry { margin-bottom: 8pt; }
+  .edu-entry .degree { font-size: 8pt; font-weight: 500; color: #2a2a2a; }
+  .edu-entry .degree em { font-weight: 400; font-style: italic; color: #3a3a3a; }
+  .edu-entry .school { font-size: 7pt; font-weight: 500; color: var(--accent); letter-spacing: 0.5pt; }
+  .edu-entry .details { font-size: 7pt; color: #555; letter-spacing: 0.5pt; }
+
+  /* ── Work experience: single two-column flow ── */
+  .work-flow {
+    columns: 2;
+    column-gap: 24pt;
+    column-fill: auto;
+  }
+
+  .job {
+    margin-bottom: 8pt;
+  }
+  .job-header {
+    break-after: avoid;
+  }
+  .job-title { font-size: 8pt; font-weight: 500; color: var(--accent); letter-spacing: 0.5pt; }
+  .job-company { font-size: 8pt; font-weight: 500; color: var(--accent); letter-spacing: 0.3pt; }
+  .job-meta { font-size: 6.8pt; font-weight: 600; color: #555; letter-spacing: 0.5pt; margin-bottom: 3pt; }
+
+  ul { padding-left: 0; list-style-position: inside; }
+  li { margin-bottom: 0; text-align: justify; }
+  li::marker { color: #2a2a2a; font-size: 6pt; }
+</style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<div class="header">
+  <h1>MICHAEL GOYTIA</h1>
+  <div class="contact">916.223.1357 <span class="sep">///</span> MICHAEL.R.GOYTIA@GMAIL.COM <span class="sep">///</span> GITHUB.COM/GOYTIA54</div>
+</div>
+
+<!-- ════════ TOP ROW ════════ -->
+<div class="top-row">
+  <div class="top-left">
+    <div class="section-title">TECHNICAL</div>
+    <div class="tech-grid">
+      <div class="tech-col">
+        <div class="sub-heading">PROGRAMMING LANGUAGES</div>
+        <p><strong>EXPERT //</strong> Scala, Java, Python</p>
+        <p><strong>PROFICIENT ///</strong> SQL(Oracle, Postgres), PHP, NoSQL(MongoDB, DynamoDB)</p>
+        <p><strong>COMPETENT ///</strong> C#, C++, JavaScript</p>
+      </div>
+      <div class="tech-col">
+        <div class="sub-heading">OTHER</div>
+        <p><strong>PROFICIENT ///</strong> AWS, REST, API design, Django, Flask, Linux, Bash, VIM, Visual Studio, Git, IntelliJ, PyCharm, Docker, Play Framework, Jenkins, Swagger-UI, Mockito, GitHub Actions, Terraform, Kubernetes, ZIO, Spring, XML, XSL JSON, AI-Assisted Development</p>
+        <p><strong>COMPETENT ///</strong> Spring Boot, pytest, Akka, Protobuf</p>
+      </div>
+    </div>
+  </div>
+  <div class="top-right">
+    <div class="section-title">EDUCATION</div>
+    <div class="edu-entry">
+      <div class="degree">M.S. CHEMISTRY — <em>Emphasis in Theoretical and Computational Chemistry</em></div>
+      <div class="school">UNIVERSITY OF UTAH</div>
+      <div class="details">SALT LAKE CITY, UT /// MAY 2017 /// GPA 3.8</div>
+    </div>
+    <div class="edu-entry">
+      <div class="degree">B.S. CHEMISTRY</div>
+      <div class="school">BRIGHAM YOUNG UNIVERSITY-IDAHO</div>
+      <div class="details">REXBURG, ID /// APR 2015 /// GPA 3.4</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ WORK EXPERIENCE ════════ -->
+<div class="section-title">WORK EXPERIENCE</div>
+
+<div class="work-flow">
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">SENIOR PRODUCT ENGINEER</div>
+      <div class="job-company">THE WALT DISNEY COMPANY</div>
+      <div class="job-meta">REMOTE (SALT LAKE CITY, UT) /// MAY 2026 – PRESENT</div>
+    </div>
+    <ul>
+      <li>Designed and delivered an automated host failure detection and disabling system end-to-end — a NoSQL-backed failure tracking system with configurable thresholds, rolling time windows, and feature-flagged rollout across multiple services, directly eliminating recurring oncall pages from known failure patterns (Scala, ZIO, AWS: DynamoDB, Datadog, Terraform).</li>
+      <li>Led a backwards-compatible output pathing initiative across six microservices, introducing a new routing signal for updated hardware while preserving existing workflows and fixing a correctness bug in HDR classification that would have caused incorrect downstream processing (Scala, ZIO, Java, Spring, Kafka, Terraform).</li>
+      <li>Contributed engineering work across 10 of 25 annual roadmap initiatives including new codec support, cloud migration, advertisement processing, and new product type enablement.</li>
+      <li>Built a lightweight local testing tool enabling engineers to run full orchestration pathways end-to-end without a deployed environment, improving developer velocity and catching integration issues earlier in the development cycle (Docker, Scala, Java).</li>
+      <li>Proactively identified and fixed high-impact production reliability issues: timeout responses silently misclassified as success, duplicate events causing phantom job failures, and jobs stuck in a running state when retry limits were exceeded.</li>
+      <li>Authored 15 technical proposals and design documents; contributed to every monthly release plan throughout the year.</li>
+      <li>Mentored three engineers, contributed to cross-team bug discovery across adjacent platform services, and presented AI-assisted development techniques to the broader organization.</li>
+      <li>Helped the media manufacturing platform reach a daily processing record of 5.8 million jobs — a 3.7x increase over the start of the year — through cumulative throughput improvements, cloud processing expansion, and reliability work.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">SENIOR SOFTWARE ENGINEER</div>
+      <div class="job-company">THE WALT DISNEY COMPANY</div>
+      <div class="job-meta">REMOTE (SALT LAKE CITY, UT) /// AUG 2024 – MAY 2026</div>
+    </div>
+    <ul>
+      <li>Led migration of critical database systems from MySQL 5.7 to MySQL 8, improving performance, scalability, and long-term maintainability (Postgres, Java, Spring).</li>
+      <li>Collaborated with DBA teams to design and implement a robust cutover strategy, resolving primary key auto-increment conflicts across multiple environments.</li>
+      <li>Upgraded essential dependencies to enable seamless failover between writer and reader nodes, ensuring high availability and operational resilience (Java, Spring).</li>
+      <li>Executed database cutovers with zero data loss, maintaining uninterrupted processing of active workloads and preserving transactional integrity.</li>
+      <li>Demonstrated technical leadership, cross-functional collaboration, and meticulous attention to detail throughout a complex migration initiative.</li>
+      <li>Developed and validated interface applications, enabling seamless communication between media processing devices and manufacturing orchestration systems (Java, Spring).</li>
+      <li>Collaborated across packaging and manufacturing teams to troubleshoot integration issues, ensuring alignment for the Content Characterization initiative (Java, Spring, Scala, ZIO, AWS, Kafka, Terraform).</li>
+      <li>Created and executed comprehensive test plans, guaranteeing successful delivery and system reliability.</li>
+      <li>Led a resource metrics initiative to improve visibility into system resource utilization within the media processing pipeline, enabling better performance monitoring and capacity planning (Java, Spring, Scala, ZIO, AWS: Step Functions, DynamoDB, MSK and SQS, Terraform).</li>
+      <li>Drove the project end-to-end, including discovery, requirements framing, execution, validation, and release.</li>
+      <li>Collaborated with cross-functional stakeholders, including acquisition and tooling teams, to ensure alignment and maximize impact across engineering groups.</li>
+      <li>Co-led and successfully delivered a high-visibility project, ensuring timely enablement of video art workflows for browser-based streaming experiences.</li>
+      <li>Performed comprehensive end-to-end testing, uncovering integration gaps between manufacturing, packaging, and preset services.</li>
+      <li>Facilitated cross-team collaboration to resolve system discontinuities, aligning preset override configurations and orchestration logic.</li>
+      <li>Developed detailed test plans and validation strategies, guaranteeing accurate data flow and reliable system performance.</li>
+      <li>Demonstrated leadership, problem-solving, and cross-functional coordination during a critical delivery period with reduced team capacity.</li>
+      <li>Assisted in designing a new architecture for resource pool-controlled workflows, enabling faster job scaling and reducing cloud costs (Scala, ZIO, AWS: Step Functions, DynamoDB, MSK and SQS, Terraform).</li>
+      <li>Developed and optimized core components of the lifecycle, including task submission, termination handling, and data modeling.</li>
+      <li>Implemented performance improvements such as pagination for task queries and optimized database updates to minimize unnecessary capacity changes.</li>
+      <li>Designed and integrated AWS SQS consumers, DynamoDB indexes, and Kafka topics to support reliable task orchestration and messaging.</li>
+      <li>Enhanced local testing and deployment workflows by creating Docker Compose resources and refactoring dependency injection.</li>
+      <li>Executed cutover from a legacy application to this new application, increasing daily media manufacturing throughput from 1.4M to 3.2M (142% increase) jobs with minimal production impact.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">SOFTWARE ENGINEER II</div>
+      <div class="job-company">THE WALT DISNEY COMPANY</div>
+      <div class="job-meta">REMOTE (UT) /// MAR 2022 – AUG 2024</div>
+    </div>
+    <ul>
+      <li>Led migration of transcode orchestration workflows to a modern service, improving efficiency and scalability for major initiatives such as Unified Ads and MAX on Hulu catalog backfill (Scala, ZIO, AWS: Step Functions, DynamoDB, MSK and SQS, Terraform).</li>
+      <li>Designed and executed a multi-phased deployment strategy, reducing risk and ensuring uninterrupted processing during large-scale changes.</li>
+      <li>Developed, validated, and documented mission-critical interface applications during a staffing shortage, supporting Packaging and Processing teams (Java, Protobuf).</li>
+      <li>Facilitated cross-team collaboration on flexible preset support, introducing best practices and tools to improve productivity and processes.</li>
+      <li>Expanded domain expertise in media manufacturing, completing diverse tasks, resolving on-call issues, and sharing organized knowledge resources to enable team growth.</li>
+      <li>Contributed to multiple design proposals and implementations, simplifying cross-system communication within manufacturing orchestration and reducing operating expenses.</li>
+      <li>Led migration of legacy dynamic ads insertion (DAI) flow, advancing platform unification and improving system reliability (Scala, ZIO, AWS: Step Functions, DynamoDB, MSK and SQS, Terraform)</li>
+      <li>Scoped, defined tasks, and delegated work for AWS Elemental normalization stage removal, eliminating external dependencies and enabling data center cutover for DAI workflows.</li>
+      <li>Designed and implemented key features for a modern transcode orchestrator, supporting a new HDR codec workflow and unifying Disney streaming platforms.</li>
+      <li>Delivered critical contributions to projects for enhancing video processing pipelines and improving consumer experience while reducing operational costs.</li>
+      <li>Provided extensive code reviews and refactoring recommendations, improving code readability, maintainability, and overall quality.</li>
+      <li>Demonstrated strong initiative in professional development, engaging in training, cross-team collaboration, and knowledge-sharing opportunities.</li>
+      <li>Maintained high execution throughput across multiple functional areas, consistently delivering complex tasks under tight timelines.</li>
+      <li>Contributed to core services and workflow enhancements, including new stages and feature additions to media manufacturing applications, enabling successful delivery of media assets with advertisement entry points.</li>
+      <li>Improved infrastructure and automation by implementing Terraform updates, pre-commit hooks, and setting up EKS environments with Spinnaker for deployments.</li>
+      <li>Actively collaborated across teams, ensuring effective knowledge sharing and smooth integration of new features.</li>
+      <li>Demonstrated strong initiative in learning and domain expertise, documenting findings and sharing insights to support team growth.</li>
+      <li>Provided meaningful code reviews and refactoring recommendations, improving code quality, readability, and maintainability.</li>
+      <li>Committed to professional development, engaging in training, cross-team interactions, and presentation opportunities to broaden technical and organizational impact.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">SOFTWARE ENGINEER</div>
+      <div class="job-company">OPTCONNECT</div>
+      <div class="job-meta">REMOTE /// JUL 2020 – DEC 2021</div>
+    </div>
+    <ul>
+      <li>Enhance and maintain a customer facing API that is used for managing Internet of Things (IoT) devices (Scala, Play Framework, Akka, Angular, Swagger UI)</li>
+      <li>Make updates to customer facing API documentation to provide a better user experience and effortless implementation</li>
+      <li>Automated deploys of documentation and API definitions (AWS CLI/API Gateway, GitHub Actions)</li>
+      <li>Developed integration and regression tests to ensure stability when running deploys</li>
+      <li>Converted user requests into endpoint features and enhancements</li>
+      <li>Expanded unit testing of API code base by 50% to increase confidence in making continuous changes</li>
+      <li>Enhance and maintain a cloud application (Python, AWS Lambda/API Gateway/SQS, MongoDB) used for syncing customer and IoT device data from Oracle NetSuite restlests (ONSR).</li>
+      <li>Deploy new features and bug changes for cloud application using the serverless framework and Jenkins</li>
+      <li>Developed a data sanitation library(Python, PyPi, marshmallow, AWS CodeArtifact) to better visualize invalid data points in various internal applications that consume ONSR</li>
+      <li>Documented business logic that make up the definitions used for said data sanitation.</li>
+      <li>Automated deployments of sanitation library using Jenkins Pipeline and AWS Command Line Interface (CLI).</li>
+      <li>Developed an internal application(Python, Django, Bootstrap 3) to be used by NetSuite developers and the operations department</li>
+      <li>Developed features for Netsuite developers to test existing and new restlests to ensure changes are compatible with defined business logic and to accelerate development</li>
+      <li>Developed features for the operations department to view and correct invalid data points returned in NetSuite restlests</li>
+      <li>Documented application functionality and user flows to ensure better adoption/use of application</li>
+      <li>Developed a CI/CD pipeline using Jenkins Pipeline to provide frequent and automated deploys</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">SOFTWARE ENGINEER</div>
+      <div class="job-company">GALILEO FINANCIAL TECHNOLOGIES</div>
+      <div class="job-meta">SALT LAKE CITY, UT /// MAY 2019 – JUN 2020</div>
+    </div>
+    <ul>
+      <li>Internal and payment processing API teams</li>
+      <li>Architected and contributed to the development of a new API for internal customer service and cardholder dispute applications</li>
+      <li>Architected and developed the integration of Mastercard's Mastercom API to handle cardholder disputes in real time</li>
+      <li>Architected and contributed to the development of Galileo's public facing API documentation</li>
+      <li>Converted legacy PHP API into Python Flask API via test driven development</li>
+      <li>Created an authentication API to allow public access to payment processing APIs which traditionally had restricted access</li>
+      <li>Created and reformed API contracts to ensure the creation of quality endpoints</li>
+      <li>Managed deploy process from testing, client validation, to production</li>
+      <li>Implemented swagger documentation libraries to help guide and solidify the structure of endpoints as well as provide documentation for the business</li>
+      <li>Developed custom Marshmallow schemas to sanitize and validate inputs into the API</li>
+      <li>Expanded testing suite by over 100% to ensure full coverage of code</li>
+      <li>Wrote a variety of automated test cases ranging from unit to end-to-end to harden the API code</li>
+      <li>Trained and mentored 2 junior engineers</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">TECHNICAL LEAD</div>
+      <div class="job-company">GALILEO FINANCIAL TECHNOLOGIES</div>
+      <div class="job-meta">SALT LAKE CITY, UT /// NOV 2019 – MAR 2020</div>
+    </div>
+    <ul>
+      <li>Technical lead for Money+, a mobile and web banking application for registered investment advisors</li>
+      <li>Team was disbanded due to cut in Federal Funds Rate</li>
+      <li>Led a team of 2 full-time and 2 intern software engineers</li>
+      <li>Led the development of the business logic, API, used by the Money+ web and mobile applications</li>
+      <li>Oversaw and contributed to the development of the logic needed to handle the opening of joint, business, and beneficiary accounts within Galileo's payment processing API</li>
+      <li>Refactored a single-file web application into an up-to-date enterprise Flask API using Flask Blueprints, Marshmallow Schemas, and Apispec for proper documentation</li>
+      <li>Oversaw and contributed to the implementation of unit and integration tests to harden the API code.</li>
+      <li>Trained team members on best practices for various topics such as version control, documentation, and testing</li>
+      <li>Worked with software delivery team to implement automated building and deployment of API</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">SOFTWARE ENGINEER</div>
+      <div class="job-company">MYRIAD GENETICS</div>
+      <div class="job-meta">SALT LAKE CITY, UT /// MAR 2018 - MAY 2019</div>
+    </div>
+    <ul>
+      <li>Upgraded legacy applications by separating logic into front and back end solutions</li>
+      <li>Led API design sessions with developers</li>
+      <li>Created and upgraded back end applications with Spring Boot</li>
+      <li>Created wire frames and mock-ups and presented them to users for feedback</li>
+      <li>Implemented designs with Vue.js and Vuetify to create modern web applications</li>
+      <li>Developed and implemented new features in our legacy applications with many technologies such as JBOSS, Spring MVC, and Grails</li>
+      <li>Created idempotent DML and DDL SQL deploy/rollback scripts</li>
+      <li>Created software requirements and provided risk scores used in verification for our SDLC process.</li>
+      <li>Wrote test cases, manual and automated, integration and mock, to provide durability for the products we create and maintain</li>
+      <li>Wrote Python programs to mock the functionality of instruments used in the labs to produce realistic data for testing</li>
+      <li>Worked beside a support engineer to address failures in production</li>
+      <li>Created test data for other informatics teams to use during validation of processes before going to production</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">SOFTWARE DEVELOPER INTERN</div>
+      <div class="job-company">MOTOROLA SOLUTIONS</div>
+      <div class="job-meta">SALT LAKE CITY, UT /// OCT 2017 - MAR 2018</div>
+    </div>
+    <ul>
+      <li>Developing models based on existing XSL transforms for XML screens used for querying state databases.</li>
+      <li>Writing unit tests to confirm the translation of XML data to Java objects and to validate the controller's generation of content for query messages</li>
+      <li>Developing controllers to generate the contents of a query message based on the query models</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">SOFTWARE AUTOMATION ENGINEER INTERN</div>
+      <div class="job-company">3M HIS</div>
+      <div class="job-meta">SALT LAKE CITY, UT /// MAY 2017 - AUG 2017</div>
+    </div>
+    <ul>
+      <li>Implementing and maintaining automation test cases for the internal framework</li>
+      <li>Creating page objects via Selenium drivers and browser APIs</li>
+      <li>Developed a local ASP.NET .NET Core web application to report automation test results</li>
+    </ul>
+  </div>
+
+</div><!-- /work-flow -->
+
+</body>
+</html>
